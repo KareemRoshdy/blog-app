@@ -1,0 +1,34 @@
+.not-found {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.not-found-image {
+  height: 500px;
+  overflow: hidden;
+}
+
+.not-found-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.not-found-link {
+  display: block;
+  color: var(--white-color);
+  background: rgb(90, 158, 161);
+  background: linear-gradient(
+    270deg,
+    rgba(90, 158, 161, 1) 27%,
+    rgba(127, 225, 255, 1) 75%
+  );
+  font-size: 20px;
+  font-weight: 500;
+  padding: 7px 20px;
+  border-radius: 5px;
+}

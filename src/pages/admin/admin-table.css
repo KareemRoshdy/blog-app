@@ -1,0 +1,148 @@
+.table-container {
+  display: flex;
+  height: calc(100vh - 60px);
+  overflow: hidden;
+}
+
+.table-wrapper {
+  flex: 10;
+  padding: 20px;
+  overflow-y: scroll;
+}
+
+.table-title {
+  font-size: 30px;
+  color: var(--green-color);
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--dark2-color);
+  padding-bottom: 3px;
+  width: max-content;
+}
+
+.table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid var(--gray-color);
+  padding: 10px;
+}
+
+th {
+  background-color: var(--dark2-color);
+  color: var(--white-color);
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f6f5f5;
+}
+
+tr:hover {
+  background-color: #efeded;
+}
+
+.table-image {
+  display: flex;
+  align-items: center;
+}
+
+.table-user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.table-username {
+  font-weight: 500;
+  font-size: 16px;
+  margin-left: 5px;
+}
+
+.table-button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.table-button-group button {
+  border: none;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 5px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+.table-view-btn a {
+  color: var(--white-color);
+}
+
+.table-button-group .table-delete-btn {
+  background-color: var(--red-color);
+}
+
+/* Media Queries */
+@media (max-width: 720px) {
+  .table-wrapper {
+    padding: 10px;
+  }
+
+  .table-button-group {
+    flex-wrap: wrap;
+  }
+
+  .table-button-group button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+
+  .table-image {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .table-wrapper {
+    padding: 5px;
+  }
+
+  th,
+  td {
+    padding: 3px;
+    text-align: center;
+  }
+
+  .table-username {
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+    margin: 2px 0;
+  }
+
+  .table-user-image {
+    width: 30px;
+    height: 30px;
+  }
+
+  .table-button-group button {
+    margin: 0;
+    width: max-content;
+    padding: 0 7px;
+  }
+}

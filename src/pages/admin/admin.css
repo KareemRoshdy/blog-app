@@ -1,0 +1,247 @@
+.admin-dashboard {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  min-height: calc(100vh - 60px);
+}
+
+/* Admin Sidebar */
+.admin-sidebar {
+  flex: 2;
+  border-top: 2px solid var(--white-color);
+  padding: 20px;
+  background-color: var(--bg-color);
+}
+
+.admin-sidebar-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--dark2-color);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--dark2-color);
+}
+
+.admin-sidebar-title svg {
+  margin-right: 5px;
+  color: var(--green-color);
+}
+
+.admin-dashboard-list {
+  padding: 5px;
+}
+
+.admin-sidebar-link {
+  color: var(--dark2-color);
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: 0.3;
+}
+
+.admin-sidebar-link svg {
+  margin-right: 10px;
+  font-size: 19px;
+}
+
+.admin-sidebar-link:hover {
+  color: var(--blue-color);
+}
+
+/* Admin Main */
+.admin-main {
+  flex: 10;
+  padding: 10px;
+}
+
+.admin-main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #ccc;
+}
+
+.admin-main-card {
+  width: 22%;
+  margin: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--white-color);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.admin-main-card:first-child {
+  background: rgb(109, 213, 221);
+  background: linear-gradient(
+    57deg,
+    rgba(109, 213, 221, 1) 12%,
+    rgba(0, 101, 205, 1) 81%
+  );
+}
+.admin-main-card:nth-child(2) {
+  background: rgb(217, 109, 252);
+  background: linear-gradient(
+    57deg,
+    rgba(217, 109, 252, 1) 15%,
+    rgba(166, 0, 104, 1) 64%
+  );
+}
+.admin-main-card:nth-child(3) {
+  background: rgb(27, 237, 171);
+  background: linear-gradient(
+    90deg,
+    rgba(27, 237, 171, 1) 4%,
+    rgba(87, 166, 172, 1) 69%
+  );
+}
+.admin-main-card:nth-child(4) {
+  background: rgb(242, 205, 54);
+  background: linear-gradient(
+    90deg,
+    rgba(242, 205, 54, 1) 4%,
+    rgba(231, 166, 108, 1) 75%
+  );
+}
+
+.admin-card-title {
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.admin-card-count {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.admin-card-link-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-card-link {
+  font-size: 17px;
+  color: var(--white-color);
+  font-weight: 600;
+}
+
+.admin-card-icon svg {
+  font-size: 25px;
+}
+
+/* Add Category Form */
+.add-category {
+  margin: 10px auto;
+  margin-top: 20px;
+  width: 700px;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+
+.add-category-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--green-sea-color);
+  margin-bottom: 15px;
+}
+
+.add-category-form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.add-category-form-group label {
+  margin: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--font-color);
+  cursor: pointer;
+}
+
+.add-category-form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+.add-category-btn {
+  cursor: pointer;
+  border: none;
+  background: rgb(36, 209, 99);
+  background: linear-gradient(
+    90deg,
+    rgba(36, 209, 99, 1) 14%,
+    rgba(108, 231, 157, 1) 75%
+  );
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  padding: 10px 0;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 5px;
+  color: var(--white-color);
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .admin-main-card {
+    width: 44%;
+  }
+}
+
+@media (max-width: 990px) {
+  .admin-sidebar {
+    display: none;
+  }
+
+  .add-category {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-main-card {
+    width: 100%;
+  }
+  .admin-card-link-wrapper,
+  .admin-card-count,
+  .admin-card-title {
+    font-size: 17px;
+    font-weight: 400;
+  }
+  .admin-card-icon svg {
+    font-size: 20px;
+  }
+  .add-category {
+    padding: 15px 10px;
+  }
+  .add-category-title {
+    font-size: 17px;
+  }
+  .add-category-form-group label {
+    font-size: 14px;
+  }
+  .add-category-form-group input {
+    font-size: 15px;
+  }
+  .add-category-btn {
+    font-size: 15px;
+    width: 100%;
+  }
+}
