@@ -124,8 +124,17 @@
   gap: 6px;
 }
 
+.post-details-icon-wrapper div small {
+  cursor: pointer;
+}
+
 .post-details-icon-wrapper svg {
   cursor: pointer;
+}
+
+.post-details-info-write {
+  font-size: 17px;
+  color: var(--font-color);
 }
 
 /* Media Queries */

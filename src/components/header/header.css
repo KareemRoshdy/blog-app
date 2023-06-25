@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: space-between;
   background-color: var(--bg-color);
+  border-bottom: 1px solid #fff;
   z-index: 99;
 }
 
@@ -90,6 +91,7 @@
   color: var(--dark2-color);
   margin-right: 10px;
   text-transform: capitalize;
+
   cursor: pointer;
 }
 
@@ -162,7 +164,7 @@
     padding: 15px 0;
     background-color: var(--bg-color);
     clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-    border-bottom: 2px solid var(--dark2-color);
+    border-bottom: 2px solid #fff;
     transition: 0.3s;
   }
   .navbar.open {

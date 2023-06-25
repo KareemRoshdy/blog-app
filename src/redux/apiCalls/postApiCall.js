@@ -43,13 +43,12 @@ export function createPost(newPost) {
   return async (dispatch, getState) => {
     try {
       dispatch(postActions.setLoading());
-      await request.post(`/api/posts`, newPost, {
+      await request.post("/api/posts", newPost, {
         headers: {
           Authorization: `Bearer ${getState().auth.user.token}`,
           "Content-Type": "multipart/form-data",
         },
       });
-
       dispatch(postActions.setIsPostCreated());
       setTimeout(() => {
         dispatch(postActions.clearIsPostCreated());
@@ -137,6 +136,18 @@ export function deletePost(postID) {
       });
       dispatch(postActions.deletePost(data.postId));
       toast.success(data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
+  };
+}
+
+// Get All Posts
+export function getAllPosts() {
+  return async (dispatch) => {
+    try {
+      const { data } = await request.get(`/api/posts`);
+      dispatch(postActions.setPosts(data));
     } catch (error) {
       toast.error(error.response.data.message);
     }

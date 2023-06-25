@@ -4,7 +4,7 @@ import {
   BsPerson,
   BsPersonPlus,
 } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { logoutUser } from "../../redux/apiCalls/authApiCall";
@@ -12,9 +12,9 @@ import { logoutUser } from "../../redux/apiCalls/authApiCall";
 const HeaderRight = () => {
   // Dispatch
   const dispatch = useDispatch();
-
   const { user } = useSelector((state) => state.auth);
-  const { profile } = useSelector((state) => state.profile);
+  const navigate = useNavigate();
+
   // States
   const [dropdown, setDropdown] = useState(false);
 
@@ -49,6 +49,7 @@ const HeaderRight = () => {
                 onClick={() => {
                   dispatch(logoutUser());
                   setDropdown(false);
+                  navigate("/");
                 }}
               >
                 <BsBoxArrowLeft />

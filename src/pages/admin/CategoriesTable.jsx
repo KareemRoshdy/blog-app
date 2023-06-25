@@ -1,24 +1,33 @@
 import AdminSidebar from "./AdminSidebar";
-import "./admin-table.css";
 import { BsTrash } from "react-icons/bs";
 import swal from "sweetalert";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import {
+  deleteCategory,
+  getCategories,
+} from "../../redux/apiCalls/categoryApiCall";
+import "./admin-table.css";
 
 const CategoriesTable = () => {
+  const dispatch = useDispatch();
+  const { categories } = useSelector((state) => state.category);
+
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
+
   // Delete Category Handler
-  const deleteCategoryHandler = () => {
+  const deleteCategoryHandler = (categoryId) => {
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this category!",
       icon: "warning",
       buttons: true,
       dangerMode: true,
-    }).then((willDelete) => {
-      if (willDelete) {
-        swal("Category has been deleted!", {
-          icon: "success",
-        });
-      } else {
-        swal("Something went wrong!");
+    }).then((isOk) => {
+      if (isOk) {
+        dispatch(deleteCategory(categoryId));
       }
     });
   };
@@ -37,11 +46,11 @@ const CategoriesTable = () => {
             </tr>
           </thead>
           <tbody>
-            {[1, 2, 3].map((item) => (
-              <tr key={item}>
-                <td>{item}</td>
+            {categories?.map((item, index) => (
+              <tr key={item._id}>
+                <td>{index + 1}</td>
                 <td>
-                  <b>Music</b>
+                  <b>{item.title}</b>
                 </td>
 
                 <td>
@@ -49,7 +58,7 @@ const CategoriesTable = () => {
                     <button
                       title="delete category"
                       className="table-delete-btn"
-                      onClick={deleteCategoryHandler}
+                      onClick={() => deleteCategoryHandler(item._id)}
                     >
                       <BsTrash />
                     </button>

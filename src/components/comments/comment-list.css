@@ -3,6 +3,11 @@
   border-radius: 5px;
   margin: 10px 0;
 }
+.comments-list-box {
+  max-height: 500px;
+  overflow-y: scroll;
+  padding: 5px;
+}
 
 .comment-list-count {
   font-size: 25px;
@@ -25,7 +30,7 @@
   justify-content: space-between;
 }
 
-.comment-item-username {
+.comment-item-username a {
   font-size: 19px;
   font-weight: bold;
   color: var(--dark2-color);
@@ -60,13 +65,13 @@
   .comment-list-count {
     font-size: 18px;
   }
-  .comment-item-username {
+  .comment-item-username a {
     font-size: 16px;
   }
   .comment-item-text {
     font-size: 14px;
   }
-  .comment-item-time{
-   font-size: 11px;
+  .comment-item-time {
+    font-size: 11px;
   }
 }

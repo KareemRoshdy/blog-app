@@ -9,8 +9,8 @@ const UpdateProfileModal = ({ setUpdateProfile, profile }) => {
   const dispatch = useDispatch();
 
   // States
-  const [username, setUsername] = useState(profile.username);
-  const [bio, setBio] = useState(profile.bio);
+  const [username, setUsername] = useState(profile?.username);
+  const [bio, setBio] = useState(profile?.bio);
   const [password, setPassword] = useState("");
 
   // From Submit Handler
@@ -26,7 +26,7 @@ const UpdateProfileModal = ({ setUpdateProfile, profile }) => {
       updatedUser.password = password;
     }
 
-    dispatch(updateProfile(profile._id, updatedUser));
+    dispatch(updateProfile(profile?._id, updatedUser));
     setUpdateProfile(false);
   };
 

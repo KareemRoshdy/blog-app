@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 import "./add-comment.css";
+import { createComment } from "../../redux/apiCalls/commentApiCall";
 
-const AddComment = () => {
+const AddComment = ({ postId }) => {
+  const dispatch = useDispatch();
+
   const [text, setText] = useState("");
 
   //   Form Submit Handler
@@ -10,19 +14,18 @@ const AddComment = () => {
     e.preventDefault();
     if (text.trim() === "") return toast.error("Please write something");
 
-    console.log({ text });
+    dispatch(createComment({ text, postId }));
     setText("");
   };
   return (
     <form className="add-comment" onSubmit={formSubmitHandler}>
-      <textarea
-        rows="4"
+      <input
         type="text"
         placeholder="add a comment"
         className="add-comment-input"
         value={text}
         onChange={({ target }) => setText(target.value)}
-      ></textarea>
+      />
       <button className="add-comment-btn" type="submit">
         Comment
       </button>

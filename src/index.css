@@ -66,13 +66,16 @@ html::-webkit-scrollbar-thumb {
   background-color: var(--dark2-color);
 }
 
+.comments-list-box::-webkit-scrollbar,
 .table-container ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
+.comments-list-box::-webkit-scrollbar-track,
 .table-container ::-webkit-scrollbar-track {
   background-color: var(--bg-color);
 }
+.comments-list-box::-webkit-scrollbar-thumb,
 .table-container ::-webkit-scrollbar-thumb {
   background-color: var(--dark2-color);
 }
@@ -171,3 +174,4 @@ html::-webkit-scrollbar-thumb {
     font-size: 16px;
   }
 }
+
