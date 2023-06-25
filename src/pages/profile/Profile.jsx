@@ -124,13 +124,20 @@ const Profile = () => {
         </div>
 
         {user?._id === profile?._id && (
-          <button
-            className="profile-update-btn"
-            onClick={() => setUpdateProfile(true)}
-          >
-            <BsFilePerson />
-            <span>Update Profile</span>
-          </button>
+          <div className="profile-update-sittings">
+            <button
+              className="profile-update-btn"
+              onClick={() => setUpdateProfile(true)}
+            >
+              <BsFilePerson />
+              <span>Update Profile</span>
+            </button>
+
+            <button className="delete-account-btn" onClick={deletePostHandler}>
+              <BsTrash />
+              <span>Delete Account</span>
+            </button>
+          </div>
         )}
       </div>
 
@@ -144,16 +151,10 @@ const Profile = () => {
               post={post}
               username={profile?.username}
               userId={profile?._id}
+              profileImage={profile?.profilePhoto.url}
             />
           ))}
         </div>
-
-        {user?._id === profile?._id && (
-          <button className="delete-account-btn" onClick={deletePostHandler}>
-            <BsTrash />
-            <span>Delete Account</span>
-          </button>
-        )}
       </div>
       {updateProfile && (
         <UpdateProfileModal

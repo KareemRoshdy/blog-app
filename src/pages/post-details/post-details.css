@@ -139,9 +139,7 @@
 
 /* Media Queries */
 @media (max-width: 820px) {
-  .post-details {
-    width: 100%;
-  }
+  
   .post-details-bottom,
   .post-details-info-container {
     width: 100%;

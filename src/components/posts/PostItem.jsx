@@ -1,24 +1,24 @@
 import { Link } from "react-router-dom";
 
 /* eslint-disable react/prop-types */
-const PostItem = ({ post, username, userId }) => {
+const PostItem = ({ post, username, userId, profileImage }) => {
   const profileLink = userId
     ? `/profile/${userId}`
     : `/profile/${post?.user._id}`;
+
   return (
     <div className="post-item">
-      <div className="post-item-image-wrapper">
-        <img
-          src={post?.image.url}
-          alt={post?.title}
-          className="post-item-image"
-        />
-      </div>
-
       <div className="post-item-info-wrapper">
         <div className="post-item-info">
           <div className="post-item-author">
-            <strong>Author: </strong>
+            <div className="post-item-author-image">
+              <img
+                src={
+                  profileImage ? profileImage : post?.user?.profilePhoto?.url
+                }
+                alt=""
+              />
+            </div>
 
             <Link className="post-item-username" to={profileLink}>
               {username ? username : post?.user.username}
@@ -50,6 +50,15 @@ const PostItem = ({ post, username, userId }) => {
           veritatis consequatur voluptatem modi fugit ipsum iure hic provident
           neque, voluptatibus accusamus animi?
         </p>
+
+        <div className="post-item-image-wrapper">
+          <img
+            src={post?.image.url}
+            alt={post?.title}
+            className="post-item-image"
+          />
+        </div>
+
         <Link className="post-item-link" to={`/posts/details/${post?._id}`}>
           Read More
         </Link>

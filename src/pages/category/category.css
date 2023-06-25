@@ -23,7 +23,6 @@
 }
 
 .category .post-list .post-item {
-  flex: 0 0 450px;
   margin: 0;
   margin-bottom: 40px;
 }
@@ -56,8 +55,3 @@
   cursor: pointer;
 }
 
-@media (max-width: 971px) {
-  .category .post-list .post-item {
-    flex: 100%;
-  }
-}
