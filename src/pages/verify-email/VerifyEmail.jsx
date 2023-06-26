@@ -1,9 +1,21 @@
 import "./verify-email.css";
 import { BsPatchCheck, BsPatchExclamation } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { verifyEmail } from "../../redux/apiCalls/authApiCall";
 
 const VerifyEmail = () => {
-  const isEmailVerified = true;
+  const dispatch = useDispatch();
+  const { userId, token } = useParams();
+  const { isEmailVerified } = useSelector((state) => state.auth);
+
+  console.log({ userId, token });
+
+  useEffect(() => {
+    dispatch(verifyEmail(userId, token));
+  }, [dispatch, userId, token]);
+
   return (
     <section className="verify-email">
       {isEmailVerified ? (
