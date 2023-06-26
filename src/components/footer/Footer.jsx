@@ -4,10 +4,8 @@ const Footer = () => {
   return (
     <footer style={styles}>
       <Logo />
-      <p style={{lineHeight: 1.6}}>
-        Created By Kareem Roshdy{" "}
-        <span style={{ color: "red"}}>&hearts; </span>
-        <br />
+      <p style={{ lineHeight: 1.6 }}>
+        Created By Kareem Roshdy <span style={{ color: "red" }}>&hearts; </span>
         Copyright 2023 &copy;
       </p>
     </footer>
