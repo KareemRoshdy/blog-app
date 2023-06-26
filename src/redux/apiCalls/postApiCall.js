@@ -9,7 +9,7 @@ export function getPostsByPageNumber(pageNumber) {
       const { data } = await request.get(`/api/posts?pageNumber=${pageNumber}`);
       dispatch(postActions.setPosts(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -21,7 +21,7 @@ export function getPostsCount() {
       const { data } = await request.get(`/api/posts/count`);
       dispatch(postActions.setPostsCount(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -33,7 +33,7 @@ export function getPostsByCategory(category) {
       const { data } = await request.get(`/api/posts?category=${category}`);
       dispatch(postActions.setPostsCategory(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -54,7 +54,7 @@ export function createPost(newPost) {
         dispatch(postActions.clearIsPostCreated());
       }, 2000);
     } catch (error) {
-      toast.error(error.response.message);
+      toast.error(error.response?.message);
       dispatch(postActions.clearLoading());
     }
   };
@@ -67,7 +67,7 @@ export function getSinglePost(postId) {
       const { data } = await request.get(`/api/posts/${postId}`);
       dispatch(postActions.setPost(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -87,7 +87,7 @@ export function toggleLikePost(postId) {
       );
       dispatch(postActions.setLike(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -104,7 +104,7 @@ export function updatePostImage(newImage, postId) {
       });
       toast.success("New post image uploaded successfully");
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -120,7 +120,7 @@ export function updatePost(newPost, postId) {
       });
       dispatch(postActions.setPost(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -137,7 +137,7 @@ export function deletePost(postID) {
       dispatch(postActions.deletePost(data.postId));
       toast.success(data.message);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -149,7 +149,7 @@ export function getAllPosts() {
       const { data } = await request.get(`/api/posts`);
       dispatch(postActions.setPosts(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }

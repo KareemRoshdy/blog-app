@@ -51,11 +51,11 @@ const PostsTable = () => {
                 <td>
                   <div className="table-image">
                     <img
-                      src={item.user.profilePhoto?.url}
+                      src={item.user?.profilePhoto?.url}
                       alt="userImage"
                       className="table-user-image"
                     />
-                    <span className="table-username">{item.user.username}</span>
+                    <span className="table-username">{item.user?.username}</span>
                   </div>
                 </td>
                 <td>{item.title}</td>

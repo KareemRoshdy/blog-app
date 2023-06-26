@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const PostItem = ({ post, username, userId, profileImage }) => {
   const profileLink = userId
     ? `/profile/${userId}`
-    : `/profile/${post?.user._id}`;
+    : `/profile/${post?.user?._id}`;
 
   return (
     <div className="post-item">
@@ -21,7 +21,7 @@ const PostItem = ({ post, username, userId, profileImage }) => {
             </div>
 
             <Link className="post-item-username" to={profileLink}>
-              {username ? username : post?.user.username}
+              {username ? username : post?.user?.username}
             </Link>
           </div>
 
@@ -53,7 +53,7 @@ const PostItem = ({ post, username, userId, profileImage }) => {
 
         <div className="post-item-image-wrapper">
           <img
-            src={post?.image.url}
+            src={post?.image?.url}
             alt={post?.title}
             className="post-item-image"
           />
