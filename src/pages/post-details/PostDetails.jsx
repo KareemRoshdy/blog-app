@@ -26,6 +26,7 @@ const PostDetails = () => {
   const { post } = useSelector((state) => state.post);
   const { user } = useSelector((state) => state.auth);
 
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -73,13 +74,13 @@ const PostDetails = () => {
           <div className="post-details-user-info">
             <div className="post-details-user">
               <img
-                src={post?.user.profilePhoto?.url}
-                alt={post?.user.username}
+                src={post?.user?.profilePhoto.url}
+                alt={post?.user?.username}
                 className="post-details-user-image"
               />
               <strong>
-                <Link to={`/profile/${post?.user._id}`}>
-                  {post?.user.username}
+                <Link to={`/profile/${post?.user?._id}`}>
+                  {post?.user?.username}
                 </Link>
               </strong>
             </div>
@@ -93,12 +94,12 @@ const PostDetails = () => {
 
       <div className="post-details-image-wrapper">
         <img
-          src={file ? URL.createObjectURL(file) : post?.image.url}
+          src={file ? URL.createObjectURL(file) : post?.image?.url}
           alt={post?.title}
           className="post-details-image"
         />
 
-        {post?.user._id === user?._id && (
+        {post?.user?._id === user?._id && (
           <form
             className="update-post-image-form"
             onSubmit={updateImageSubmitHandler}
@@ -135,7 +136,7 @@ const PostDetails = () => {
         <div className="post-details-icon-wrapper">
           {user && (
             <div onClick={() => dispatch(toggleLikePost(post?._id))}>
-              {post?.likes.includes(user?._id) ? (
+              {post?.likes?.includes(user?._id) ? (
                 <BsHandThumbsUpFill />
               ) : (
                 <BsHandThumbsUp />
@@ -145,7 +146,7 @@ const PostDetails = () => {
             </div>
           )}
 
-          {post?.user._id === user?._id && (
+          {post?.user?._id === user?._id && (
             <div>
               <span
                 className="bi-pencil-square"
