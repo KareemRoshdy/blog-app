@@ -9,7 +9,7 @@ export function getCategories() {
       const { data } = await request.get("/api/categories");
       dispatch(categoryActions.stateCategories(data));
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -26,7 +26,7 @@ export function createCategory(newCategory) {
       dispatch(categoryActions.addCategory(data));
       toast.success("category created successfully");
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
@@ -43,7 +43,7 @@ export function deleteCategory(categoryId) {
       dispatch(categoryActions.deleteCategory(data.categoryId));
       toast.success(data.message);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.response.data?.message);
     }
   };
 }
